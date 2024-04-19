@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Task Detail</title>
+</head>
+<body>
+	<form action="{% url 'taskdetail' form.pk %}" method="POST">
+		{% csrf_token %}
+		<input type="text" value="{{form.title}}" name="title">
+		<textarea name="description" id="">{{form.description}}</textarea>
+		<input type="checkbox" name="important" {% if form.important %}checked{% endif %}>
+		<button type="submit">Guardar tarea</button>
+	</form>
+</body>
+</html>

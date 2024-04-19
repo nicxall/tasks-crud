@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Task Create</title>
+</head>
+<body>
+	<form action="{% url 'createtask' %}" method="POST">
+		{% csrf_token %}
+		<input type="text" placeholder="nombre de la tarea" name="title">
+		<input type="textearea" placeholder="descripcion de la tarea" name="description">
+		<input type="checkbox" name="important">
+		<button type="submit">Crear tarea</button>
+	</form>
+
+</body>
+</html>

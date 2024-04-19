@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Task List</title>
+</head>
+<body>
+	{% for x in tasks %}
+		<a href="{% url 'taskdetail' x.id %}">{{x.title}}</a>
+		<a href="{% url 'deletetask' x.id %}"><button>Eliminar</button></a>
+	{% endfor %}
+
+</body>
+</html>

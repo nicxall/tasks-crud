@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home Page</title>
+</head>
+<body>
+	<h1>Welcome {{user.username}}</h1>
+	<a href="{% url 'logout' %}">Logout</a>
+	<a href="{% url 'createtask' %}">Crear Tarea</a>
+	<a href="{% url 'tasklist' %}">Ver tareas</a>
+
+</body>
+</html>

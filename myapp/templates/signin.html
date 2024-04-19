@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Signin User</title>
+</head>
+<body>
+	<form action="" method="POST">
+		{% csrf_token %}
+		<input type="text" placeholder="Ingrese el username" name="username">
+		<input type="password" placeholder="Ingrese su password" name="password">
+		<button type="submit">Signin</button>
+		<a href='{% url "social:begin" "google-oauth2" %}'>Signin with Google</a>
+	</form>
+
+</body>
+</html>
