@@ -2,3 +2,4 @@
 __pycache__
 notex/.env
 venv
+db.sqlite3
