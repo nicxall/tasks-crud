@@ -4,7 +4,7 @@
 	<title>Signin User</title>
 </head>
 <body>
-	<form action="" method="POST">
+	<form action="{% url 'signin' %}" method="POST">
 		{% csrf_token %}
 		<input type="text" placeholder="Ingrese el username" name="username">
 		<input type="password" placeholder="Ingrese su password" name="password">
