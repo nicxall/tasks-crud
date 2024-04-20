@@ -6,7 +6,7 @@ authors = ["juan <cuentapersonaluni@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = "^3.9"
 djangorestframework = "^3.15.1"
 django = "3.2"
 social-auth-app-django = "^5.4.0"
