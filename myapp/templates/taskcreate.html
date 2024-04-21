@@ -5,17 +5,18 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="description" content="Crear tarea">
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="{% static 'css/taskcreate.css' %}">
 	<title>{% block title %} Task Create {% endblock %}</title>
 </head>
 <body>
-	{% include 'home.html' %}
-	<form action="{% url 'createtask' %}" method="POST">
-		{% csrf_token %}
-		<input type="text" placeholder="nombre de la tarea" name="title">
-		<input type="textearea" placeholder="descripcion de la tarea" name="description">
-		<input type="checkbox" name="important">
-		<button type="submit">Crear tarea</button>
-	</form>
-
+    {% include 'home.html' %}
+    <div class="card">
+        <form action="{% url 'createtask' %}" method="POST">
+            {% csrf_token %}
+            <input type="text" placeholder="Nombre de la tarea" name="title">
+            <textarea placeholder="Descripción de la tarea" name="description"></textarea>
+            <label><input type="checkbox" name="important">Importante</label>
+            <button type="submit">Crear tarea</button>
+        </form>
+    </div>
 </body>
-</html>
