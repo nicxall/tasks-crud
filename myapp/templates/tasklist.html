@@ -5,9 +5,10 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="description" content="Listado de tarea">
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<title>Task List</title>
+	<title>{% block title %} Task List {% endblock %}</title>
 </head>
 <body>
+	{% include 'home.html' %}
 	{% for x in tasks %}
 		<a href="{% url 'taskdetail' x.id %}">{{x.title}}</a>
 		<a href="{% url 'deletetask' x.id %}"><button>Eliminar</button></a>
