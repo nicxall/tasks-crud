@@ -6,17 +6,20 @@
 	<meta name="description" content="Inicio de sesion">
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="icon" href="../static/favicon.ico">
+	<link rel="stylesheet" href="{% static 'css/signin.css' %}">
 
 	<title>Signin User</title>
 </head>
 <body>
-	<form action="{% url 'signin' %}" method="POST">
+	<div class="card">
+		<form action="{% url 'signin' %}" method="POST">
 		{% csrf_token %}
 		<input type="text" placeholder="Ingrese el username" name="username">
 		<input type="password" placeholder="Ingrese su password" name="password">
 		<button type="submit">Signin</button>
 		<a href='{% url "social:begin" "google-oauth2" %}'>Signin with Google</a>
-	</form>
+		</form>
+	</div>
 
 </body>
 </html>
