@@ -1,29 +1,117 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="es">
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="description" content="Inicio de sesion">
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<link rel="icon" href="{% static 'favicon.ico' %}">
-	<link rel="stylesheet" href="{% static 'css/signin.css' %}">
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Inicio de sesion">
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="icon" href="{% static 'favicon.ico' %}">
+		<link rel="stylesheet" href="{% static 'css/signin.css' %}">
+                
+        <!-- Boxicons CSS -->
+        <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+                        
+    </head>
+    <body>
+        <section class="container forms">
+            <div class="form login">
+                <div class="form-content">
+                    <header>Login</header>
+                    <form action="{% url 'signin' %}" method="POST">
+                    	{% csrf_token %}
+                        <div class="field input-field">
+                            <input type="email" placeholder="Email" class="input">
+                        </div>
 
-	<title>Signin User</title>
-</head>
-<body>
-	<div class="card">
-		<form action="{% url 'signin' %}" method="POST">
-			{% csrf_token %}
-			<input type="text" placeholder="Ingrese el username" name="username">
-			<input type="password" placeholder="Ingrese su password" name="password">
-			<button type="submit">Signin</button>
-		</form>
-		<a href='{% url "social:begin" "google-oauth2" %}' class="google-btn">
-			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z"/></svg>
-			Signin with Google
-		</a>
-	</div>
-</body>
+                        <div class="field input-field">
+                            <input type="password" placeholder="Password" class="password">
+                            <i class='bx bx-hide eye-icon'></i>
+                        </div>
+
+                        <div class="form-link">
+                            <a href="#" class="forgot-pass">Forgot password?</a>
+                        </div>
+
+                        <div class="field button-field">
+                            <button>Login</button>
+                        </div>
+                    </form>
+
+                    <div class="form-link">
+                        <span>Don't have an account? <a href="#" class="link signup-link">Signup</a></span>
+                    </div>
+                </div>
+
+                <div class="line"></div>
+
+                <div class="media-options">
+                    <a href="#" class="field facebook">
+                        <i class='bx bxl-facebook facebook-icon'></i>
+                        <span>Login with Facebook</span>
+                    </a>
+                </div>
+
+                <div class="media-options">
+                    <a href='{% url "social:begin" "google-oauth2" %}' class="field google">
+                        <img src="#" alt="" class="google-img">
+                        <span>Login with Google</span>
+                    </a>
+                </div>
+
+            </div>
+
+            <!-- Signup Form -->
+
+            <div class="form signup">
+                <div class="form-content">
+                    <header>Signup</header>
+                    <form action="{% url 'signup' %}" method="POST">
+                    	{% csrf_token %}
+                        <div class="field input-field">
+                            <input type="email" placeholder="Email" class="input">
+                        </div>
+
+                        <div class="field input-field">
+                            <input type="password" placeholder="Create password" class="password">
+                        </div>
+
+                        <div class="field input-field">
+                            <input type="password" placeholder="Confirm password" class="password">
+                            <i class='bx bx-hide eye-icon'></i>
+                        </div>
+
+                        <div class="field button-field">
+                            <button>Signup</button>
+                        </div>
+                    </form>
+
+                    <div class="form-link">
+                        <span>Already have an account? <a href="#" class="link login-link">Login</a></span>
+                    </div>
+                </div>
+
+                <div class="line"></div>
+
+                <div class="media-options">
+                    <a href="#" class="field facebook">
+                        <i class='bx bxl-facebook facebook-icon'></i>
+                        <span>Login with Facebook</span>
+                    </a>
+                </div>
+
+                <div class="media-options">
+                    <a href='{% url "social:begin" "google-oauth2" %}' class="field google">
+                        <img src="#" alt="" class="google-img">
+                        <span>Login with Google</span>
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- JavaScript -->
+        <script src="{% static 'js/signin.js' %}"></script>
+    </body>
 </html>
 
