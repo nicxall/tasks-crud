@@ -41,23 +41,19 @@ class SigninUser(View):
 		except User.DoesNotExist:
 			return HtppResponse("Lo sentimos sus datos no existen en la base de datos")
 
-class Signup(View):
-	template_name = "signup.html"
-	def get(self, request):
-		return render(request, self.template_name)
-	def post(self, request):
-		if request.POST['password1'] == request.POST['password2']:
-			try:
-				DataCreate = User.objects.create_user(
-					username = request.POST['username'],
-					password = request.POST['password1']
-				)
-				DataCreate.backend = 'django.contrib.auth.backends.ModelBackend'
-				DataCreate.save()
-				login(request, DataCreate)
-				return redirect('home')
-			except IntegrityError:
-				return redirect('signup')
+def Signup(request):
+	if request.POST['password1'] == request.POST['password2']:
+		try:
+			DataCreate = User.objects.create_user(
+				username = request.POST['username'],
+				password = request.POST['password1']
+			)
+			DataCreate.backend = 'django.contrib.auth.backends.ModelBackend'
+			DataCreate.save()
+			login(request, DataCreate)
+			return redirect('home')
+		except IntegrityError:
+			return redirect('signin')
 
 def SessionCloseUser(request):
 	logout(request)

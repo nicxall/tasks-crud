@@ -21,11 +21,11 @@
                     <form action="{% url 'signin' %}" method="POST">
                     	{% csrf_token %}
                         <div class="field input-field">
-                            <input type="email" placeholder="Email" class="input">
+                            <input type="text" placeholder="Username" class="input" name="username">
                         </div>
 
                         <div class="field input-field">
-                            <input type="password" placeholder="Password" class="password">
+                            <input type="password" placeholder="Password" class="password" name="password">
                             <i class='bx bx-hide eye-icon'></i>
                         </div>
 
@@ -54,7 +54,7 @@
 
                 <div class="media-options">
                     <a href='{% url "social:begin" "google-oauth2" %}' class="field google">
-                        <img src="#" alt="" class="google-img">
+                        <img src="{% static 'google.svg'%}" alt="" class="google-img">
                         <span>Login with Google</span>
                     </a>
                 </div>
@@ -69,15 +69,15 @@
                     <form action="{% url 'signup' %}" method="POST">
                     	{% csrf_token %}
                         <div class="field input-field">
-                            <input type="email" placeholder="Email" class="input">
+                            <input type="text" placeholder="Username" class="input">
                         </div>
 
                         <div class="field input-field">
-                            <input type="password" placeholder="Create password" class="password">
+                            <input type="password" placeholder="Create password" class="password" name="password1">
                         </div>
 
                         <div class="field input-field">
-                            <input type="password" placeholder="Confirm password" class="password">
+                            <input type="password" placeholder="Confirm password" class="password" name="password2">
                             <i class='bx bx-hide eye-icon'></i>
                         </div>
 
@@ -102,7 +102,7 @@
 
                 <div class="media-options">
                     <a href='{% url "social:begin" "google-oauth2" %}' class="field google">
-                        <img src="#" alt="" class="google-img">
+                        <img src="{% static 'google.svg'%}" alt="" class="google-img">
                         <span>Login with Google</span>
                     </a>
                 </div>
