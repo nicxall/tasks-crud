@@ -25,7 +25,10 @@ class TemplateHome(TemplateView):
 class SigninUser(View):
 	template_name = "signin.html"
 	def get(self, request):
-		return render(request, self.template_name)
+		if request.user.is_authenticated:
+			return redirect('home')
+		else:
+			return render(request, self.template_name)
 	def post(self, request):
 		try:
 			validation_data = authenticate(

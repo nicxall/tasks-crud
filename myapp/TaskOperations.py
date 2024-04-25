@@ -56,7 +56,7 @@ class TaskList(View):
 class TaskDetail(View):
     def get(self, request, pk):
         task = get_object_or_404(get_user_tasks(request), pk=pk)
-        return render(request, 'tasklist.html', {'task': task})
+        return render(request, 'taskdetail.html', {'task': task})
 
     def post(self, request, pk):
         task = get_object_or_404(get_user_tasks(request), pk=pk)

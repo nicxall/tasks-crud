@@ -9,11 +9,11 @@
 </head>
 <body>
 	{% include 'home.html' %}
-	<form action="{% url 'taskdetail' form.pk %}" method="POST">
+	<form action="{% url 'taskdetail' task.pk %}" method="POST">
 		{% csrf_token %}
-		<input type="text" value="{{form.title}}" name="title">
-		<textarea name="description" id="">{{form.description}}</textarea>
-		<input type="checkbox" name="important" {% if form.important %}checked{% endif %}>
+		<input type="text" value="{{task.title}}" name="title">
+		<textarea name="description" id="">{{task.description}}</textarea>
+		<input type="checkbox" name="important" {% if task.important %}checked{% endif %}>
 		<button type="submit">Guardar tarea</button>
 	</form>
 </body>
