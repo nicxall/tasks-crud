@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -5,14 +6,19 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="description" content="Listado de tarea">
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="{% static 'css/tasklist.css' %}">
 	<title>{% block title %} Task List {% endblock %}</title>
 </head>
 <body>
-	{% include 'home.html' %}
-	{% for x in tasks %}
-		<a href="{% url 'taskdetail' x.id %}">{{x.title}}</a>
-		<a href="{% url 'deletetask' x.id %}"><button>Eliminar</button></a>
-	{% endfor %}
-
+    <div class="task-container">
+        {% for x in tasks %}
+        <div class="task-card">
+            <a href="{% url 'taskdetail' x.id %}">{{x.title}}</a>
+            <a href="{% url 'deletetask' x.id %}">
+                <button>Eliminar</button>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
 </body>
 </html>

@@ -16,7 +16,7 @@
             {% csrf_token %}
             <input type="text" placeholder="Nombre de la tarea" name="title">
             <textarea placeholder="Descripción de la tarea" name="description"></textarea>
-            <label><input type="checkbox" name="important">Importante</label>
+            <label class="label__input"><input type="checkbox" name="important">Importante</label>
             <button type="submit">Crear tarea</button>
         </form>
     </div>
