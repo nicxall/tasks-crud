@@ -21,7 +21,7 @@ class TemplateHome(TemplateView):
 			return render(request, self.template_name)
 		else:
 			return redirect('signin')
-
+ 
 class SigninUser(View):
 	template_name = "signin.html"
 	def get(self, request):
