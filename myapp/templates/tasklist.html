@@ -12,27 +12,11 @@
 
 <body>
     {% include 'home.html' %}
-    <div class="ag-format-container">
-        <div class="ag-courses_box">
-            
-            <div class="ag-courses_item">
-                {% for x in tasks %}
-                <a href="{% url 'taskdetail' x.id %}" class="ag-courses-item_link">
-                    <div class="ag-courses-item_bg"></div>
-                    <div class="ag-courses-item_title">
-                        {{x.title}}
-                    </div>
-                    <div class="ag-courses-item_date-box">
-                        Creado:
-                        <span class="ag-courses-item_date">
-                            {{x.created}}
-                        </span>
-                    </div>
-                </a>
-                {% endfor %}
-            </div>
-            
-        </div>
+    <div>
+        {% for x in tasks %}
+            <h2>{{x.title}}</h2>
+            <p>{{x.description}}</p>
+        {% endfor %}
     </div>
 </body>
 
