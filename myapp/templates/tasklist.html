@@ -12,6 +12,38 @@
 
 <body>
     {% include 'home.html' %}
+    <div class="ag-format-container">
+        <div class="ag-courses_box">
+            
+            <div class="ag-courses_item">
+                {% for x in tasks %}
+                <a href="{% url 'taskdetail' x.id %}" class="ag-courses-item_link">
+                    <div class="ag-courses-item_bg"></div>
+                    <div class="ag-courses-item_title">
+                        {{x.title}}
+                    </div>
+                    <div class="ag-courses-item_date-box">
+                        Creado:
+                        <span class="ag-courses-item_date">
+                            {{x.created}}
+                        </span>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+            
+        </div>
+    </div>
 </body>
 
 </html>
+<!-- 
+   <div class="task-card">
+           <a href="{% url 'taskdetail' x.id %}">{{x.title}}</a>
+           <p>{{x.description}}</p>
+   
+           <a href="{% url 'deletetask' x.id %}">
+               <button>Eliminar</button>
+           </a>
+       </div>
+   -->
