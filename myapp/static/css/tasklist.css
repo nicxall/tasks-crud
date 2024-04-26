@@ -31,10 +31,9 @@ body {
   display: block;
   padding: 30px 20px;
   background-color: #121212;
-
   overflow: hidden;
-
   position: relative;
+  text-decoration: none;
 }
 .ag-courses-item_link:hover,
 .ag-courses-item_link:hover .ag-courses-item_date {
@@ -62,14 +61,14 @@ body {
 .ag-courses-item_date-box {
   font-size: 18px;
   color: #FFF;
-
+  text-decoration: none;
   z-index: 2;
   position: relative;
 }
 .ag-courses-item_date {
   font-weight: bold;
   color: #f9b234;
-
+  text-decoration: none;
   -webkit-transition: color .5s ease;
   -o-transition: color .5s ease;
   transition: color .5s ease
