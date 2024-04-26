@@ -6,12 +6,12 @@ from django.views import View
 from django.contrib.auth.forms import AuthenticationForm
 from .models import TaskModel
 from django.views.generic import UpdateView, TemplateView
-
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 #Import file verification methods http
 from .validations import render_template
 # Create your views here.
-
+@login_required
 class TemplateHome(TemplateView):
 	template_name = "home.html"
 	user = User.username
@@ -57,7 +57,8 @@ def Signup(request):
 			return redirect('home')
 		except IntegrityError:
 			return redirect('signin')
-
+			
+@login_required
 def SessionCloseUser(request):
 	logout(request)
 	return redirect('signin')

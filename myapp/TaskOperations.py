@@ -23,7 +23,7 @@ def get_user_tasks(request):
     return TaskModel.objects.filter(user=request.user).order_by('-created', 'title')
 
 # Vistas
-
+@login_required
 class TaskCreate(View):
     template_task_create = "taskcreate.html"
 
@@ -46,6 +46,7 @@ class TaskCreate(View):
                 messages.error(request, "Ocurrió un error al crear la tarea")
             return render(request, self.template_task_create, {'form': task_form})
 
+@login_required
 class TaskList(View):
     template_task_list = "tasklist.html"
 
@@ -56,7 +57,7 @@ class TaskList(View):
         except Exception as e:
             print(f'El error es: {e}')
 
-
+@login_required
 class TaskDetail(View):
     def get(self, request, pk):
         task = get_object_or_404(get_user_tasks(request), pk=pk)
@@ -68,6 +69,7 @@ class TaskDetail(View):
         task_form.save()
         return redirect('home')
 
+@login_required
 def DeleteTask(request, id):
     task_to_delete = get_object_or_404(TaskModel, pk=id)
     task_to_delete.delete()
