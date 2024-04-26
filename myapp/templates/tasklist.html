@@ -2,31 +2,30 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="description" content="Listado de tarea">
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<link rel="stylesheet" href="{% static 'css/tasklist.css' %}">
-	<title>{% block title %} Task List {% endblock %}</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Listado de tarea">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="{% static 'css/tasklist.css' %}">
+    <title>{% block title %} Task List {% endblock %}</title>
 </head>
+
 <body>
-    {% include "home.html" %}
+    {% include 'home.html' %}
     <div class="ag-format-container">
         <div class="ag-courses_box">
             {% for x in tasks %}
             <div class="ag-courses_item">
                 <a href="#" class="ag-courses-item_link">
                     <div class="ag-courses-item_bg"></div>
-
                     <div class="ag-courses-item_title">
-                    {{ x.title }}
+                        {{x.title}}
                     </div>
-
                     <div class="ag-courses-item_date-box">
-                    Creado:
-                    <span class="ag-courses-item_date">
-                        {{ x.created }}
-                    </span>
+                        Creado:
+                        <span class="ag-courses-item_date">
+                            {{x.created}}
+                        </span>
                     </div>
                 </a>
             </div>
@@ -34,19 +33,15 @@
         </div>
     </div>
 </body>
+
 </html>
-
-
-
-
 <!-- 
-
-    <div class="task-card">
-            <a href="{% url 'taskdetail' x.id %}">{{x.title}}</a>
-            <p>{{x.description}}</p>
-
-            <a href="{% url 'deletetask' x.id %}">
-                <button>Eliminar</button>
-            </a>
-        </div>
- -->
+   <div class="task-card">
+           <a href="{% url 'taskdetail' x.id %}">{{x.title}}</a>
+           <p>{{x.description}}</p>
+   
+           <a href="{% url 'deletetask' x.id %}">
+               <button>Eliminar</button>
+           </a>
+       </div>
+   -->
