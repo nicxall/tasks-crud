@@ -22,12 +22,10 @@ body {
 .ag-courses_item {
   -ms-flex-preferred-size: calc(33.33333% - 30px);
   flex-basis: calc(33.33333% - 30px);
-
   margin: 0 15px 30px;
-
   overflow: hidden;
-
   border-radius: 28px;
+  margin-top: 50px;
 }
 .ag-courses-item_link {
   display: block;

@@ -17,7 +17,7 @@
             
             <div class="ag-courses_item">
                 {% for x in tasks %}
-                <a href='' class="ag-courses-item_link">
+                <a href="{% url 'taskdetail' pk=x.id %}" class="ag-courses-item_link">
                     <div class="ag-courses-item_bg"></div>
                     <div class="ag-courses-item_title">
                         {{x.title}}
