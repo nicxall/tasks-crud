@@ -15,7 +15,7 @@ from .validations import render_template
 class TemplateHome(TemplateView):
 	template_name = "home.html"
 	user = User.username
-	@login_required
+	
 	def get(self, request):
 		if request.user.is_authenticated:
 			return render(request, self.template_name)
