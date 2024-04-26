@@ -25,10 +25,10 @@ def get_user_tasks(request):
 # Vistas
 class TaskCreate(View):
     template_task_create = "taskcreate.html"
-    @login_required
+    
     def get(self, request):
         return render(request, self.template_task_create)
-    @login_required
+    
     def post(self, request):
         try:
             task_form = TaskForm(request.POST)
@@ -47,7 +47,7 @@ class TaskCreate(View):
 
 class TaskList(View):
     template_task_list = "tasklist.html"
-    @login_required
+    
     def get(self, request):
         try:
             tasks = get_user_tasks(request)
@@ -57,11 +57,11 @@ class TaskList(View):
 
 
 class TaskDetail(View):
-    @login_required
+    
     def get(self, request, pk):
         task = get_object_or_404(get_user_tasks(request), pk=pk)
         return render(request, 'taskdetail.html', {'task': task})
-    @login_required
+    
     def post(self, request, pk):
         task = get_object_or_404(get_user_tasks(request), pk=pk)
         task_form = TaskForm(request.POST, instance=task)
