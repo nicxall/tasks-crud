@@ -12,22 +12,6 @@
 
 <body>
     {% include 'home.html' %}
-    <div>
-        {% for x in tasks %}
-            <h2>{{x.title}}</h2>
-            <p>{{x.description}}</p>
-        {% endfor %}
-    </div>
 </body>
 
 </html>
-<!-- 
-   <div class="task-card">
-           <a href="{% url 'taskdetail' x.id %}">{{x.title}}</a>
-           <p>{{x.description}}</p>
-   
-           <a href="{% url 'deletetask' x.id %}">
-               <button>Eliminar</button>
-           </a>
-       </div>
-   -->
