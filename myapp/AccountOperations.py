@@ -11,11 +11,11 @@ from django.http import HttpResponse
 #Import file verification methods http
 from .validations import render_template
 # Create your views here.
-@login_required
+
 class TemplateHome(TemplateView):
 	template_name = "home.html"
 	user = User.username
-
+	@login_required
 	def get(self, request):
 		if request.user.is_authenticated:
 			return render(request, self.template_name)
