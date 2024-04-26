@@ -157,7 +157,7 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = env('GOOGLE_OAUTH_CLIENT_ID')
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = env('GOOGLE_OAUTH_CLIENT_SECRET')
 SOCIAL_AUTH_FACEBOOK_KEY = env('FACEBOOK_OAUTH_CLIENT_ID')
 SOCIAL_AUTH_FACEBOOK_SECRET = env('FACEBOOK_OAUTH_CLIENT_SECRET')
-
+ 
 if not DEBUG:
     # Tell Django to copy static assets into a path called `staticfiles` (this is specific to Render)
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
