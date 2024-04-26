@@ -50,8 +50,12 @@ class TaskList(View):
     template_task_list = "tasklist.html"
 
     def get(self, request):
-        tasks = get_user_tasks(request)
-        return render(request, self.template_task_list, {'tasks': tasks})
+        try:
+            tasks = get_user_tasks(request)
+            return render(request, self.template_task_list, {'tasks': tasks})
+        except Exception as e:
+            print(f'El error es: {e}')
+
 
 class TaskDetail(View):
     def get(self, request, pk):
