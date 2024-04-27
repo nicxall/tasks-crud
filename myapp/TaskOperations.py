@@ -78,7 +78,7 @@ class TaskList(TaskOperation):
 class TaskDetail(TaskOperation):
     
     def get(self, request, pk):
-        task = get_object_or_404(get_user_tasks(request), pk=pk)
+        task = TaskModel.objects.get(pk = pk)
         return render(request, 'taskdetail.html', {'task': task})
     
     def post(self, request, pk):

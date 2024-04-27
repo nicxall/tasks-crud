@@ -12,7 +12,7 @@
 <body>
 	{% include 'home.html' %}
 	<div class="card">
-		<form action="{% url 'task_operation' 'detail' task.pk %}" method="POST">
+		<form action="{% url 'task_operation_detail' 'detail' task.pk %}" method="POST">
 			{% csrf_token %}
 			<input type="text" value="{{task.title}}" name="title">
 			<textarea name="description" id="">{{task.description}}</textarea>
