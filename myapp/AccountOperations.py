@@ -17,10 +17,13 @@ class TemplateHome(TemplateView):
 	user = User.username
 	
 	def get(self, request):
-		if request.user.is_authenticated:
-			return render(request, self.template_name)
-		else:
-			return redirect('signin')
+		try:
+			if request.user.is_authenticated:
+				return render(request, self.template_name)
+			else:
+				return redirect('signin')
+		except Exception as e:
+			print(f'El error es: {e}')
   
 class SigninUser(View):
 	template_name = "signin.html"

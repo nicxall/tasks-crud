@@ -88,7 +88,7 @@ class TaskDetail(TaskOperation):
         return redirect('home')
 
 
-class DeleteTask(TaskOperation):
+class TaskDelete(TaskOperation):
     def post(self, request, pk):
         task = get_object_or_404(TaskModel, pk=pk, user = request.user)
         task.delete()
