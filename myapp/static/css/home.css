@@ -1,12 +1,19 @@
 /* ===== Google Font Import - Poppins ===== */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
-
+/* ===== Definición de @font-face con font-display ===== */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 300 600;
+  src: url('https://fonts.gstatic.com/s/poppins/v15/pxiByp8kv8JHgFVrLGT9Z1xlFQ.woff2') format('woff2'); /* Reemplaza esta URL con la URL de tu fuente */
+  font-display: swap; /* Esta línea aplica font-display */
+}
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
-    transition: all 0.4s ease;;
+    transition: all 0.4s ease;
 }
 
 
