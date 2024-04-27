@@ -15,15 +15,34 @@ from django.http import HttpResponse
 from .forms import TaskForm
 import asyncio
 
+class TaskOperationFactory:
+    @staticmethod
+    def create_operation(operation_type):
+        if operation_type == 'create':
+            return TaskCreate()
+        elif operation_type == 'list':
+            return TaskList()
+        elif operation_type == 'detail':
+            return TaskDetail()
+        elif operation_type == 'delete':
+            return TaskDelete()
+        else:
+            raise ValueError("Tipo de operacion denegada")
 
+#Clase base para operaciones de tareas
+class TaskOperation(View):
+    template_name = None
+    def get(self, request):
+        return render(request, self.template_name)
+    def post(self, request):
+        raise NotImplementError("Metodo post no implementado")
 
 # Funciones auxiliares
-
 def get_user_tasks(request):
     return TaskModel.objects.filter(user=request.user).order_by('-created', 'title')
 
 # Vistas
-class TaskCreate(View):
+class TaskCreate(TaskOperation):
     template_task_create = "taskcreate.html"
     
     def get(self, request):
@@ -45,7 +64,7 @@ class TaskCreate(View):
                 messages.error(request, "Ocurrió un error al crear la tarea")
             return render(request, self.template_task_create, {'form': task_form})
 
-class TaskList(View):
+class TaskList(TaskOperation):
     template_task_list = "tasklist.html"
     
     def get(self, request):
@@ -56,7 +75,7 @@ class TaskList(View):
             print(f'El error es: {e}')
 
 
-class TaskDetail(View):
+class TaskDetail(TaskOperation):
     
     def get(self, request, pk):
         task = get_object_or_404(get_user_tasks(request), pk=pk)
@@ -68,8 +87,13 @@ class TaskDetail(View):
         task_form.save()
         return redirect('home')
 
-@login_required
-def DeleteTask(request, id):
-    task_to_delete = get_object_or_404(TaskModel, pk=id)
-    task_to_delete.delete()
-    return redirect('tasklist')
+
+class DeleteTask(TaskOperation):
+    def post(self, request, pk):
+        task = get_object_or_404(TaskModel, pk=pk, user = request.user)
+        task.delete()
+        return redirect('tasklist')
+
+def task_operation_view(request, operation_type, *args, **kwargs):
+    task_operation = TaskOperationFactory.create_operation(operation_type)
+    return task_operation.dispatch(request, *args, **kwargs)
