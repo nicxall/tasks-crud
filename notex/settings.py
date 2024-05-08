@@ -179,7 +179,7 @@ PWA_APP_START_URL = '/'
 PWA_APP_STATUS_BAR_COLOR = 'default'
 PWA_APP_ICONS = [
     {
-        'src': 'myapp/static/django.png',
+        'src': 'static/django.png',
         'sizes': '160x160'
     }
 ]
