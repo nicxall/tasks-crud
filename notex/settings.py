@@ -166,7 +166,7 @@ if not DEBUG:
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
     
-#PWA Django
+#PWA Django for
 
 PWA_APP_NAME = 'NoteX'
 PWA_APP_DESCRIPTION = "NoteX PWA"
